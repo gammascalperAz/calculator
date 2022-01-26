@@ -35,11 +35,11 @@ html {
 }
 
 button {
-  height: 60px;
+  height: 100px;
   background-color: #fff;
-  border-radius: 3px;
+  border-radius: 50%;
   border: 1px solid #c4c4c4;
-  background-color: transparent;
+  background-color: lightblue;
   font-size: 2rem;
   color: #333;
 }
@@ -56,6 +56,7 @@ button:hover {
   row-gap: 20px;
   -webkit-column-gap: 10px;
           column-gap: 10px;
+  background-color: goldenrod;
 }
 
 .equal-sign {
