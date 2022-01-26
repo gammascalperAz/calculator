@@ -48,9 +48,9 @@ button:hover {
 
 #keys {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-row-gap: 20px;
-  grid-column-gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  row-gap: 20px;
+  column-gap: 10px;
 }
 
 .equal-sign {
@@ -63,6 +63,8 @@ button:hover {
   grid-column-start: 4;
   grid-column-end: 5;
 }
+
+
 
 
 
