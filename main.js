@@ -1,10 +1,11 @@
+// use an array to work with the numbers. that is where the numbers are structured and workable.
 
 
 
+// array for calculation (holding stuff together)
+let theArr = [];
 
-
-
-// variables
+// variables (grabbing stuff from html)
 
 const input = document.querySelector("#input");
 let numbers = document.querySelectorAll(".num");
@@ -17,67 +18,68 @@ let secondNumber = document.querySelector("secondNumber");
 let symbol = document.querySelectorAll(".operator");
 let result;
 
-// array for calculation
-let calcArr = [];
 
-// cycling through  numbers and displaying result
+
+// cycling through  numbers and displaying result attaching the symobol of operator 
 numbers.forEach(number => {
   number.addEventListener("click", event => {
-    if (input.innerText === "+") {
-      input.innerText = "";
-    } else if (input.innerText === "-") {
-      input.innerText = "";
-    } else if (input.innerText === "*") {
-      input.innerText = "";
-    } else if (input.innerText === "/") {
-      input.innerText = "";
+    if (input.innerHTML === "+") {
+      input.innerHTML = "";
+    } else if (input.innerHTML === "-") {
+      input.innerHTML = "";
+    } else if (input.innerHTML === "*") {
+      input.innerHTML = "";
+    } else if (input.innerHTML === "/") {
+      input.innerHTML = "";
+      console.log(number)
 
     }
-    input.innerText += number.innerHTML;
+    input.innerHTML += number.innerHTML;
     
   });  
 });
+// cycling through the operators push the numbers in theArr. pushes both firstnumber and operator
+// into array.
 
 operators.forEach(operator => {
   operator.addEventListener("click", event => {
-    calcArr.push(input.innerText);
-    input.innerText = operator.innerHTML;
-    calcArr.push(operator.innerHTML);
-    console.log(calcArr);
+    theArr.push(input.innerHTML);
+    input.innerHTML = operator.innerHTML;
+    theArr.push(operator.innerHTML);
+    console.log(theArr);
 
     
   });
 });
 
+// equals button, performs based on theArr[1], math happens here, adding position 0 and 2 in the array, using the switch (based on the 1 position in the array. 
+
 
 equals.addEventListener("click", event => {
-  console.log(input.innerText);
-  calcArr.push(input.innerText);
-  input.innerText = equals.innerHTML;
-  calcArr.push(equals.innerHTML);
+  console.log(input.innerHTML);
+  theArr.push(input.innerHTML);
+  input.innerHTML = equals.innerHTML;
   let total = 0;
-  switch (calcArr[1]) {
+  switch (theArr[1]) {
     case "+":
-      total = Number(calcArr[0]) + Number(calcArr[2]);
+      total = Number(theArr[0]) + Number(theArr[2]);
       break;
     case "-":
-      total = Number(calcArr[0]) - Number(calcArr[2]);
+      total = Number(theArr[0]) - Number(theArr[2]);
       break;
     case "/":
-      total = Number(calcArr[0]) / Number(calcArr[2]);
+      total = Number(theArr[0]) / Number(theArr[2]);
       break;
     case "*":
-      total = Number(calcArr[0]) * Number(calcArr[2]);
+      total = Number(theArr[0]) * Number(theArr[2]);
       break;  
       
   
   }
-  
-  input.innerText = total;    
+  console.log(theArr);
+  input.innerHTML = total;    
  
 });
-
-
 
 
 
